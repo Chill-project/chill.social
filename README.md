@@ -1,2 +1,3 @@
 # chill.social
-The website of chill
+
+The content of the website [http://chill.social](http://chill.social).
