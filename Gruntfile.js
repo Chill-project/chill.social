@@ -6,7 +6,8 @@ module.exports = function(grunt) {
       folders: {
         'web': 'website', 
         'js':  '<%= website.folders.web %>/js',
-        'bower': './bower_components'
+        'bower': './bower_components',
+	'src': './src'
       }
     },
     bower: {
@@ -27,6 +28,19 @@ module.exports = function(grunt) {
       },
       files: ['<%= website.folders.web %>/*.html']
     },
+    copy: {
+      css: {
+        files: [
+          {cwd: '<%= website.folders.bower %>/bootstrap/dist/css/', src: '*', dest: '<%= website.folders.web %>/css', expand: true},
+          {cwd: '<%= website.folders.bower %>/bootstrap/dist/fonts/', src: '*', dest: '<%= website.folders.web %>/fonts', expand: true}
+        ]
+      },
+      img: {
+         files: [
+           {expand: true, src: ['**'], cwd: '<%= website.folders.src %>/img',  dest: '<%= website.folders.web %>/img'} 
+         ]
+      }
+    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
@@ -44,11 +58,12 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-bootlint');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.registerTask('default', ['uglify', 'bootlint']);
-  grunt.registerTask('install', ['bower', 'uglify']);
+  grunt.registerTask('install', ['bower', 'uglify', 'copy:img', 'copy:css']);
 };
 
 
