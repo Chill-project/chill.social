@@ -48,7 +48,6 @@ module.exports = function(grunt) {
     copy: {
       css: {
         files: [
-          {cwd: '<%= website.folders.bower %>/bootstrap/dist/css/', src: '*', dest: '<%= website.folders.web %>/css', expand: true},
           {cwd: '<%= website.folders.bower %>/font-awesome/css/', src: '*', dest: '<%= website.folders.web %>/css', expand: true},
           {cwd: '<%= website.folders.bower %>/font-awesome/fonts/', src: '*', dest: '<%= website.folders.web %>/fonts', expand: true}
         ]
