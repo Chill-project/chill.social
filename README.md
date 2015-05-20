@@ -31,3 +31,9 @@ Things to know :
 - the task `grunt install` will install bower dependencies and minify js ;
 - the task `grunt` will minify js and bootlint-check htm files.
 
+### less files
+
+The bootstrap framework is used, but unused parts are removed, and some are overriden.
+
+In directory `src/less` you will find personalized components using bootstrap mixins. 
+
