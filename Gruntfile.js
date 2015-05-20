@@ -11,6 +11,7 @@ module.exports = function(grunt) {
         'less': '<%= website.folders.src %>/less'
       }
     },
+
     bower: {
          install: {
             options: {
@@ -22,8 +23,8 @@ module.exports = function(grunt) {
             }
          }
       },
-    less: {
 
+    less: {
       options: {
         strictMath: true,
         sourceMap: true,
@@ -35,6 +36,7 @@ module.exports = function(grunt) {
       '<%= website.folders.web %>/css/chill.social.css': '<%= website.folders.less %>/index.less'
 
     },
+
     bootlint: {
       options: {
         stoponerror: false,
@@ -42,6 +44,7 @@ module.exports = function(grunt) {
       },
       files: ['<%= website.folders.web %>/*.html']
     },
+
     copy: {
       css: {
         files: [
@@ -50,12 +53,14 @@ module.exports = function(grunt) {
           {cwd: '<%= website.folders.bower %>/font-awesome/fonts/', src: '*', dest: '<%= website.folders.web %>/fonts', expand: true}
         ]
       },
+
       img: {
          files: [
            {expand: true, src: ['**'], cwd: '<%= website.folders.src %>/img',  dest: '<%= website.folders.web %>/img'} 
          ]
       }
     },
+
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
@@ -69,6 +74,11 @@ module.exports = function(grunt) {
              ]
         }
       }
+    },
+
+    watch: {
+      files: ['<%= website.folders.less %>/*.less'],
+      tasks: ['less']
     }
   });
 
@@ -77,6 +87,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['uglify', 'bootlint', 'less']);
   grunt.registerTask('install', ['bower', 'uglify', 'copy:img', 'copy:css']);
