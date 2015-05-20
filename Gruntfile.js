@@ -7,7 +7,8 @@ module.exports = function(grunt) {
         'web': 'website', 
         'js':  '<%= website.folders.web %>/js',
         'bower': './bower_components',
-	'src': './src'
+	      'src': './src',
+        'less': '<%= website.folders.src %>/less'
       }
     },
     bower: {
@@ -21,6 +22,19 @@ module.exports = function(grunt) {
             }
          }
       },
+    less: {
+
+      options: {
+        strictMath: true,
+        sourceMap: true,
+        outputSourceFiles: true,
+        sourceMapURL: '<%= pkg.name %>.css.map',
+        sourceMapFilename: '<%= website.folders.web %>/css/<%= pkg.name %>.css.map',
+        paths: ['<%= website.folders.bower %>/bootstrap/less' ]
+      },
+      '<%= website.folders.web %>/css/chill.social.css': '<%= website.folders.less %>/index.less'
+
+    },
     bootlint: {
       options: {
         stoponerror: false,
@@ -58,12 +72,13 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-bootlint');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['uglify', 'bootlint']);
+  grunt.registerTask('default', ['uglify', 'bootlint', 'less']);
   grunt.registerTask('install', ['bower', 'uglify', 'copy:img', 'copy:css']);
 };
 
