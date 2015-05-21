@@ -20,6 +20,8 @@ grunt install
 ```
 
 #open in your browser:
+
+```
 firefox /path/to/repo/chill.social/website/index.html
 ```
 
