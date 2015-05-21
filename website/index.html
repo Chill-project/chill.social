@@ -7,6 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Chill, logiciel libre d'accompagnement social</title>
 
+    <link rel="icon" type="image/png" href="favicon.png" />
+
     <!-- Bootstrap -->
     <link href="css/chill.social.css" rel="stylesheet">
 
@@ -26,11 +28,14 @@
     <div class="container">
       <div class="jumbotron" style="text-align: center">
 
-        <h1><img src="img/logo-chill-outil-accompagnement_transparent.png" alt="Logo de Chill, outil d'accompagnement social" /></h1>
+        <h1><img src="img/logo-chill-acc-social-facile.png" alt="Logo de Chill, accompagnement social facile" /></h1>
 
-        <p class="slogan">Premier logiciel d'accompagnement social</p>
+        <p class="slogan">Premier logiciel <strong>libre</strong> d'accompagnement social</p>
 
-        <p><a class="btn btn-primary btn-lg" href="http://demo.chill.social" role="button">Tester la démo</a></p>
+        <p>
+          <a class="btn btn-primary btn-lg" href="http://demo.chill.social" role="button">Tester la démo</a>
+          <a class="btn btn-success btn-lg" href="#providers" role="button">Trouver un prestataire</a>
+        </p>
 
 <div class="stickercontainer">
 <a href="#meetings">
@@ -202,11 +207,14 @@
                </div>
             </div>
          </div>
+      </div><!-- end row -->
 
-         <div class="col-md-4">
+      <div class="row">
+         <div class="col-md-12">
             <p class="module-plus">   
                <i class="fa fa-plus bigger"></i><br/>
-               De nouveaux modules sont créés, jour après jours.
+               Chill est une base stable pour ajouter de nouvelles fonctionnalités, qui sont disponibles, par la suite, pour tous. Le logiciel s'enrichit constamment.<br/>
+               Si vous envisagez de développer un logiciel pour votre association, n'hésitez pas à <a href="#">contacter les développeurs</a> ou parlez-en à votre informaticien. Grâce à la base du logiciel et la documentation, il pourra améliorer lui-même Chill.
             </p>
          </div>
 
@@ -219,19 +227,21 @@
 
    <div class="wrapper wrapper_meetings">
       <div class="container">
-         <div class="col-md-12">
+         <div class="row">
+            <div class="col-md-12">
 
-            <h2 class="centered"><a name="meetings"></a>Les <em>rencontres Chill</em></h3>
+               <h2 class="centered"><a name="meetings"></a>Les <em>rencontres Chill</em></h3>
 
-            <p>Les rencontres sont l'occasion d'informer et d'échanger sur le logiciel entre utilisateurs et développeurs.</p>
+               <p>Les rencontres sont l'occasion d'informer et d'échanger sur le logiciel entre utilisateurs et développeurs.</p>
 
-            <ul>
-               <li>le 15 juin 2015 à xxh au <a target="_blank" href="http://www.openstreetmap.org/?mlat=50.82898&mlon=4.36690#map=19/50.82898/4.36690">Service de Santé Mentale Ulysse à Ixelles, Rue de l'Ermitage 52</a> ;</li>
-               <li>en septembre 2015 à Liège</li>
-            </ul>
-         </div>
-       </div>
-     </div>
+               <ul>
+                  <li>le 15 juin 2015 à xxh au <a target="_blank" href="http://www.openstreetmap.org/?mlat=50.82898&mlon=4.36690#map=19/50.82898/4.36690">Service de Santé Mentale Ulysse à Ixelles, Rue de l'Ermitage 52</a> ;</li>
+                  <li>en septembre 2015 à Liège</li>
+               </ul>
+            </div>
+         </div><!-- end row -->
+    </div> <!-- end container --> 
+  </div> <!-- end class wrapper -->
 
 
 
@@ -244,46 +254,35 @@
 
       <div class="col-sm-4">
 
-         <a href="http://demo.chill.social" class="btn btn-primary">Tester le logiciel</a>
-         <p>Une version de démonstration est en ligne pour vous faire une première idée.</p>
+         <a href="http://demo.chill.social" class="btn btn-primary popover-chill" title="Accéder la version démo" data-content="Une version de démonstration vous permet de découvrir une première version du logiciel.">Tester le logiciel</a>
+         <p></p>
       </div>
 
       
 
 
       <div class="col-sm-4">
-         <a href="http://demo.chill.social" class="btn btn-primary">Lire la documentation utilisateur</a>
-         <p>Disponible à l'adresse <a href="#">http://chill-user.readthedocs.org</a></p>
+         <a href="http://demo.chill.social" class="btn btn-primary popover-chill" title="Lire la documentation utilisateur" data-content="La documentation utilisateur est disponible gratuitement, sous licence libre. Vous pouvez l'enrichir.">Lire la documentation utilisateur</a>
       </div>
 
       <div class="col-sm-4">
-         <a href="https://github.com/Chill-project" class="btn btn-primary">Obtenir le code source</a>
-         <p>Le code source <a href="https://github.com/Chill-project">est disponible sur la plate-forme github</a></p>
+         <a href="https://github.com/Chill-project" class="btn btn-primary popover-chill" title="Code source des différents modules" data-content="Le code source est disponible sur la plate-forme de partage de code Github">Obtenir le code source</a>
       </div>
 
       </div><!-- end row -->
       <div class="row">
 
       <div class="col-sm-4">
-         <a href="http://chill.readthedocs.org" class="btn btn-primary">Installez le logiciel sur votre serveur</a>
-         <p>Notre documentation explique comment installer le logiciel.</p>
+         <a href="http://chill.readthedocs.org" class="btn btn-primary popover-chill" title="Manuel d'installation" data-content="Notre documentation technique explique comment installer le logiciel (en anglais)">Installer le logiciel sur votre serveur</a>
       </div>
 
       <div class="col-sm-4">
-         <a href="#" class="btn btn-primary">Contactez les développeurs du logiciel</a>
-
-         <p>Sur la liste de diffusion du projet</p>
+         <a href="#" class="btn btn-primary popover-chill" title="Liste de diffusion" data-content="La liste de diffusion permet de contacter par email les développeurs du projet." id="popover">Contacter les développeurs du logiciel</a>
       </div>
 
       <div class="col-sm-4">
-         <button class="btn btn-primary">Obtenez (et testez) une version installée</button>
+         <a href="#providers" class="btn btn-primary popover-chill" title="Prestataires connus" data-content="Les prestataires proposent des versions hébergées du logiciel et des services de développement">Trouver un prestataire</a>
 
-         <p>Auprès des prestataires de service connus</p> 
-
-         <ul>
-            <li><a href="http://champs-libres.coop">Champs Libres</a></li>
-            <li>Envie d'être présent dans notre listes ? Vous proposez une offre "Chill" ? <a href="#">Faites-vous connaitre</a></li>
-         </ul>
       </div>
 
     </div><!-- end row -->
@@ -291,7 +290,79 @@
     </div> <!-- end container --> 
   </div> <!-- end class wrapper -->
 
-    <script src="js/all.js"></script>
+
+
+   <div class="wrapper wrapper_providers">
+
+    <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+          <h2 class="centered"><a name="providers"></a>Prestataires de services</h2>
+
+            <div role="tabpanel">
+
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist" id="tabs_providers">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Pourquoi un prestataire ?</a></li>
+                <li role="presentation"><a href="#champs-libres" aria-controls="champs-libres" role="tab" data-toggle="tab">Champs-Libres</a></li>
+                <li role="presentation"><a href="#new" aria-controls="new" role="tab" data-toggle="tab">Se déclarer comme prestaire</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+
+                   <h3>Pourquoi un prestataire ?</h3>
+
+                   <p>Chill est un logiciel libre et le code source est disponible gratuitement. Vous pouvez donc installer Chill chez vous ou développer de nouvelles fonctionnalités pour votre service, si vous disposez du matériel requis et des compétences techniques.</p>
+
+                   <p>Si vous ne disposez pas de ces compétences, ou si vous ne souhaitez pas les assurer, vous pouvez faire appel à des prestataires de services qui ont l'habitude de travailler avec les technologies utilisées par Chill. Vous trouverez ci-dessous une liste de prestataires qui se sont déclarés.</p>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="champs-libres">
+                  <div  style="float: right; "><a href="http://champs-libres.coop/"><img src="http://champs-libres.coop/img/champs_libres.png" style="width: 400px;"/></a></div>
+
+                  <h3>Champs-Libres</h3>
+
+                  <p>Champs-Libres est une société coopérative à finalité sociale qui développe des logiciels libres.</p>
+                  <p>Champs-Libres est le premier contributeur historique du logiciel Chill.</p> 
+                  <p>La coopérative est régulièrement sollicitée par le secteur non-marchand&nbsp;(ASBL, pouvoirs publics,&nbsp;...). Elle a donc l'habitude de travailler avec ce secteur. Elle est sensible à l'éthique et capable de s'adapter afin de respecter un budget serré&nbsp;: elle propose de mutualiser les coûts grâce à l'utilisation des logiciels libres.</p>
+
+                  <p>Références et contact : <a href="http://champs-libres.coop">http://champs-libres.coop</a></p>
+                  
+
+                  
+            </div>
+                <div role="tabpanel" class="tab-pane" id="new">
+                  <h3>Bienvenue aux nouveaux&nbsp;!</h3>
+                  <p>Si vous proposez des services autour du logiciel Chill, nous vous invitons à contacter l'équipe de développement pour ajouter vos références sur ce site.</p>
+               </div>
+              </div>
+
+            </div>
+
+
+         </div>
+      </div>
+    </div>
+
+      
+
+
+
+    </div> <!-- end container --> 
+  </div> <!-- end class wrapper -->
+   <script src="js/all.min.js"></script>
+
+   <script type="text/javascript">
+      $(function () {
+         $('#tabs_providers a:first').tab('show');
+         $.each($('.popover-chill'), function(index, el) { 
+            $(el).popover({trigger: 'hover', placement: 'auto top'}); 
+         });
+      });
+
+   </script>
     <!-- Piwik -->
    <script type="text/javascript">
      var _paq = _paq || [];

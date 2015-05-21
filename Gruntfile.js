@@ -8,6 +8,7 @@ module.exports = function(grunt) {
         'js':  '<%= website.folders.web %>/js',
         'bower': './bower_components',
 	      'src': './src',
+        'temp': './temp',
         'less': '<%= website.folders.src %>/less'
       }
     },
@@ -60,18 +61,62 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      bootstrap: {
+        dest: '<%= website.folders.temp %>/js/bootstrap.js', 
+        src: [
+          //'<%= website.folders.bower %>/bootstrap/js/transition.js',
+          //'<%= website.folders.bower %>/bootstrap/js/alert.js',
+          //'<%= website.folders.bower %>/bootstrap/js/button.js',
+          //'<%= website.folders.bower %>/bootstrap/js/carousel.js',
+          //'<%= website.folders.bower %>/bootstrap/js/collapse.js',
+          //'<%= website.folders.bower %>/bootstrap/js/dropdown.js',
+          //'<%= website.folders.bower %>/bootstrap/js/modal.js',
+          '<%= website.folders.bower %>/bootstrap/js/tooltip.js',
+          '<%= website.folders.bower %>/bootstrap/js/popover.js',
+          //'<%= website.folders.bower %>/bootstrap/js/scrollspy.js',
+          '<%= website.folders.bower %>/bootstrap/js/tab.js',
+          //'<%= website.folders.bower %>/bootstrap/js/affix.js'
+        ]
+      },
+      jquery_bootstrap: {
+        dest: '<%= website.folders.temp %>/js/all.js',
+        src: [
+          '<%= website.folders.bower %>/jquery/dist/jquery.js',
+          '<%= website.folders.temp %>/js/bootstrap.js'
+        ]
+      }
+    },
+
+
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
       dist: {
         files: {
-          '<%= website.folders.js %>/all.js': 
+          '<%= website.folders.js %>/all.min.js': 
              [
-               '<%= website.folders.bower %>/jquery/dist/js/jquery.js',
-               '<%= website.folders.bower %>/bootstrap/dist/js/bootstrap.js'
+               '<%= website.folders.temp %>/js/all.js'
              ]
         }
+      }
+    },
+
+   'sftp-deploy': {
+      build: {
+        auth: {
+          host: 'srv0.champs-libres.coop',
+          port: 22,
+          authKey: 'chill.social'
+        },
+        cache: 'sftpCache.json',
+        src: '<%= website.folders.web %>',
+        dest: '/srv/www/chill.social',
+        exclusions: ['/path/to/source/folder/**/.DS_Store', '/path/to/source/folder/**/Thumbs.db', 'dist/tmp'],
+        serverSep: '/',
+        concurrency: 4,
+        progress: true
       }
     },
 
@@ -87,9 +132,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-sftp-deploy');
 
-  grunt.registerTask('default', ['uglify', 'bootlint', 'less']);
-  grunt.registerTask('install', ['bower', 'uglify', 'copy:img', 'copy:css']);
+  grunt.registerTask('default', ['concat', 'uglify', 'bootlint', 'less']);
+  grunt.registerTask('install', ['bower', 'concat', 'less', 'uglify', 'copy:img', 'copy:css']);
+  grunt.registerTask('deploy', ['install', 'sftp-deploy']);
 };
 
 
