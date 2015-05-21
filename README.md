@@ -24,6 +24,27 @@ firefox /path/to/repo/chill.social/website/index.html
 
 The main page is website/index.html
 
+## deploy
+
+A task `grunt deploy` will deploy on server running the website `http://chill.social`. This task will run the install task and, then, upload files to remote server.
+
+Before running this command, you must :
+
+- have access on the server :-)
+- configure a .ftppass at the root of the project. A basic .ftppass will be : 
+
+```json
+{
+  "chill.social": {
+     "username": "root",
+     "agent": true
+  }
+}
+
+```
+
+For complete configuration, see https://www.npmjs.com/package/grunt-sftp-deploy
+
 ## Contribute
 
 Things to know :
