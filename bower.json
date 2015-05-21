@@ -1,0 +1,28 @@
+{
+  "name": "chill.social",
+  "version": "0.0.1",
+  "homepage": "http://chill.social",
+  "authors": [
+    "info@champs-libres.coop"
+  ],
+  "description": "The website http://chill.social",
+  "main": "index.html",
+  "keywords": [
+    "chill",
+    "social",
+    "social",
+    "software"
+  ],
+  "license": "CC-BY-SA-4.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "font-awesome": "~4.3.0"
+  }
+}
