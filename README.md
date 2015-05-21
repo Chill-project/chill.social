@@ -14,6 +14,7 @@ You must have `npm` and `bower` installed.
 
 ```bash
 git clone git@github.com:Chill-project/chill.social
+cd chill.social
 npm install
 grunt install
 ```
