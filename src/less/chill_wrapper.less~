@@ -1,0 +1,41 @@
+
+.wrapper {
+
+   padding: 1em 0 2em 0;
+
+   &.wrapper_jumbotron {
+      background-color: lighten(@cyan_outer, 10%);
+   }
+
+   &.wrapper_to_do_what {
+      background-color: @grey_outer;
+      color: @dark;
+   }
+
+   &.wrapper_how {
+      background-color: @red_outer;
+      color: @grey_outer;
+   }
+
+   &.wrapper_modules {
+      background-color: @grey_outer;
+      color: @dark;
+
+      //set background color inside panel
+      .panel-body {
+         background-color: lighten(@grey_outer, 10%);
+      }
+   }
+
+   &.wrapper_meetings {
+      background-color: @cyan;
+      color: @grey_outer;
+      a { color: darken(@brand-primary, 15%) };
+      a:hover { color: darken(@brand-primary, 30%) };
+   }
+
+   &.wrapper_know_more {
+      background-color: @cyan;
+      color: @grey_outer;
+   }
+}
