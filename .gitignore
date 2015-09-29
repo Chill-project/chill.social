@@ -5,6 +5,7 @@ website/js/*
 website/css/*
 website/img/*
 website/fonts/*
+website/files/*
 src/js/all.js
 src/js/bootstrap.js
 temp/*

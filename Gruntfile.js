@@ -60,6 +60,12 @@ module.exports = function(grunt) {
          files: [
            {expand: true, src: ['**'], cwd: '<%= website.folders.src %>/img',  dest: '<%= website.folders.web %>/img'} 
          ]
+      },
+
+      files: {
+         files: [
+           {expand: true, src: ['**'], cwd: '<%= website.folders.src %>/files',  dest: '<%= website.folders.web %>/files'} 
+         ]
       }
     },
 
@@ -138,7 +144,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sftp-deploy');
 
   grunt.registerTask('default', ['concat', 'uglify', 'bootlint', 'less']);
-  grunt.registerTask('install', ['bower', 'concat', 'less', 'uglify', 'copy:img', 'copy:css']);
+  grunt.registerTask('install', ['bower', 'concat', 'less', 'uglify', 'copy:img', 'copy:css', 'copy:files']);
   grunt.registerTask('deploy', ['install', 'sftp-deploy']);
 };
 
